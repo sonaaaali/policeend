@@ -1,0 +1,15 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    background: #E0FFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nooftipoffs h1{
+    height: 50vh;
+    border-radius: 10px;
+    width: 100%;
+    background: white;
+    font-size: 22rem;
+}

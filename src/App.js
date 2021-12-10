@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {Switch, Route, HashRouter, Redirect} from 'react-router-dom';
+import Login from './components/Login';
+import Tipoffs from './components/Tipoffs';
+import Main from './components/Main';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <HashRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Login/>
+            </Route>
+            <Route exact path="/tipoffs">
+              <Tipoffs/>
+            </Route>
+            <Redirect exact from='/main' to='/main/state/city/tipoff'/>
+            <Route path="/main/:state/:city/:tipoff">
+              <Main/>
+            </Route>
+          </Switch>
+        </div>
+      </HashRouter>
   );
 }
 
